@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -12,6 +13,32 @@ const Navbar = () => {
 
   const toggleServicesDropdown = () => {
     setIsServicesDropdownOpen(!isServicesDropdownOpen);
+  };
+
+  const handleNavigation = (e, path) => {
+    e.preventDefault();
+    
+    // If we're not on the home page, navigate to home first
+    if (location.pathname !== '/') {
+      window.location.href = path;
+      return;
+    }
+    
+    // We're on the home page, handle smooth scrolling
+    if (path === '/#home') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      return;
+    }
+    
+    // For other hash links, scroll to the element
+    const hash = path.split('#')[1];
+    const element = document.getElementById(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const servicesList = [
@@ -26,7 +53,11 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo-link">
+        <Link 
+          to="/" 
+          className="navbar-logo-link"
+          onClick={(e) => handleNavigation(e, '/#home')}
+        >
           <div className="navbar-logo">
             <h1>Terapiva</h1>
             <p>Akademi & Danışmanlık</p>
@@ -35,15 +66,31 @@ const Navbar = () => {
         
         <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <ul className="navbar-links">
-            <li><a href="/">Ana Sayfa</a></li>
+            <li>
+              <a 
+                href="/#home" 
+                onClick={(e) => handleNavigation(e, '/#home')}
+              >
+                Ana Sayfa
+              </a>
+            </li>
+            <li>
+              <a 
+                href="/#about"
+                onClick={(e) => handleNavigation(e, '/#about')}
+              >
+                Hakkımızda
+              </a>
+            </li>
             <li className="services-dropdown-container">
               <a 
-                href="#services" 
+                href="/#services" 
                 className="services-dropdown-trigger"
                 onClick={(e) => {
                   if (window.innerWidth > 768) {
                     e.preventDefault();
                   }
+                  handleNavigation(e, '/#services');
                 }}
                 onMouseEnter={() => window.innerWidth > 768 && setIsServicesDropdownOpen(true)}
                 onMouseLeave={() => window.innerWidth > 768 && setIsServicesDropdownOpen(false)}
@@ -62,9 +109,22 @@ const Navbar = () => {
                 ))}
               </ul>
             </li>
-            <li><a href="#about">Hakkımızda</a></li>
-            <li><a href="#faq">S.S.S.</a></li>
-            <li><a href="#contact">İletişim</a></li>
+            <li>
+              <a 
+                href="/#faq"
+                onClick={(e) => handleNavigation(e, '/#faq')}
+              >
+                S.S.S.
+              </a>
+            </li>
+            <li>
+              <a 
+                href="/#contact"
+                onClick={(e) => handleNavigation(e, '/#contact')}
+              >
+                İletişim
+              </a>
+            </li>
           </ul>
         </div>
         

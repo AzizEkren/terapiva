@@ -16,8 +16,8 @@ const Footer = () => {
 
   const quickLinks = [
     { title: 'Ana Sayfa', path: '/#home' },
-    { title: 'Hizmetlerimiz', path: '/#services' },
     { title: 'Hakkımızda', path: '/#about' },
+    { title: 'Hizmetlerimiz', path: '/#services' },
     { title: 'S.S.S.', path: '/#faq' },
     { title: 'İletişim', path: '/#contact' }
   ];
