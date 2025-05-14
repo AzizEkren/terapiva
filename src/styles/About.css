@@ -1,0 +1,178 @@
+.about {
+  padding: 5rem 0;
+  background-color: #f3eae8;
+}
+
+.about-intro {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  color: #555;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.founders-profiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.founder-profile {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  flex: 1;
+  min-width: 300px;
+}
+
+.founder-profile:hover {
+  transform: translateY(-10px);
+}
+
+.founder-image {
+  flex: 0 0 200px;
+  overflow: hidden;
+}
+
+.founder-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.founder-profile:hover .founder-image img {
+  transform: scale(1.05);
+}
+
+.founder-info {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.founder-info h3 {
+  color: #12443d;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.founder-position {
+  display: block;
+  color: #fabe47;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.founder-description {
+  color: #555;
+  line-height: 1.7;
+}
+
+.mission-vision {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.mission, .vision {
+  flex: 1;
+  min-width: 300px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.mission h3, .vision h3 {
+  color: #12443d;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.mission h3::after, .vision h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #fabe47;
+}
+
+.mission p, .vision p {
+  color: #555;
+  line-height: 1.7;
+}
+
+.about-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-10px);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fabe47;
+  margin-bottom: 0.5rem;
+}
+
+.stat-text {
+  display: block;
+  font-size: 1rem;
+  color: #12443d;
+}
+
+@media screen and (max-width: 992px) {
+  .founders-profiles {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .founder-profile {
+    flex-direction: column;
+  }
+  
+  .founder-image {
+    flex: 0 0 300px;
+  }
+  
+  .mission h3, .vision h3 {
+    font-size: 1.5rem;
+  }
+  
+  .stat-item {
+    min-width: 100px;
+    padding: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+} 

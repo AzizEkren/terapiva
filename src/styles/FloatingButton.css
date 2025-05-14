@@ -1,0 +1,84 @@
+.floating-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #12443d;
+  color: white;
+  border-radius: 50px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.floating-button:hover {
+  background-color: #fabe47;
+  color: #12443d;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 2px solid #12443d;
+}
+
+.floating-button-content {
+  display: flex;
+  align-items: center;
+}
+
+.floating-button-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin-right: 10px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.floating-button:hover .floating-button-icon {
+  filter: brightness(0);
+}
+
+.floating-button-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .floating-button {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+  }
+  
+  .floating-button-text {
+    font-size: 14px;
+  }
+  
+  .floating-button-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.floating-button {
+  animation: pulse 2s infinite;
+}
+
+.floating-button:hover {
+  animation: none;
+} 
