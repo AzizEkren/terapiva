@@ -58,6 +58,9 @@
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .service-card:hover {
@@ -90,29 +93,30 @@
 .service-card p {
   color: #666;
   margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
 .service-link {
   display: inline-block;
-  color: #12443d;
+  color: #fff;
+  background-color: #12443d;
   text-decoration: none;
   font-weight: 600;
-  position: relative;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  border: 2px solid #12443d;
+}
+
+.service-link:hover {
+  background-color: #fff;
+  color: #12443d;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(18, 68, 61, 0.2);
 }
 
 .service-link::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #fabe47;
-  transition: width 0.3s ease;
-}
-
-.service-link:hover::after {
-  width: 100%;
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
