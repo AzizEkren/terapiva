@@ -1,21 +1,23 @@
 import React from 'react';
 import '../styles/About.css';
+import sedaImage from '../assets/seda.jpg';
+import fundaImage from '../assets/funda.jpg';
 
 const About = () => {
   const founders = [
     {
       id: 1,
-      name: 'Funda Girgin',
-      position: 'Kurucu & Klinik Psikolog',
-      image: 'https://placehold.co/400x500',
-      description: 'Uzun yıllar çocuk ve ergen psikolojisi üzerine çalışmalar yürütmüş, alanında deneyimli bir uzman olarak Terapiva Akademi & Danışmanlığı kurmuştur. İstanbul Üniversitesi Psikoloji Bölümünden mezun olduktan sonra aynı üniversitede klinik psikoloji alanında yüksek lisans ve doktora eğitimini tamamlamıştır. Özellikle travma, kaygı bozuklukları ve depresyon konularında uzmanlaşmıştır.'
+      name: 'Seda Mazı',
+      position: 'Terapiva Danışmanlık Kurucusu | Psikolojik Danışman',
+      image: sedaImage,
+      description: "Uzun yıllardır öğrenci koçluğu ve eğitim danışmanlığı alanında çalışmalar yürüten bir uzman olarak Terapiva Danışmanlık'ı kurdum. Hacettepe Üniversitesi Psikolojik Danışmanlık ve Rehberlik Bölümünden mezun oldum. Yaklaşık 7 yıldır öğrenci koçluğu ve eğitim danışmanlığı alanlarında aktif olarak çalışıyor, öğrencilerin hem akademik hem de kişisel gelişim süreçlerine eşlik ediyorum. Öğrenci koçluğu, psikoterapi, aile danışmanlığı, stres ve kaygı yönetimi, sınav stresiyle başa çıkma, NLP teknikleri, oyun ve kum terapisi, filial terapi, yaşam koçluğu ve nefes koçluğu gibi alanlarda uzmanım. Özellikle sınav sistemleri, etkili öğrenme stratejileri ve öğrenci motivasyonu konularında derinlemesine bilgi sahibiyim ve bu alanlarda pek çok öğrencinin hedeflerine ulaşmasını sağladım. Her öğrencinin farklı ihtiyaçlara sahip olduğunu bilerek, süreci bireye özel yapılandırıyor; güçlü yönleri ön plana çıkaran, motivasyonu destekleyen ve sürdürülebilir başarıyı hedefleyen stratejilerle ilerliyorum."
     },
     {
       id: 2,
-      name: 'Seda Mazı',
-      position: 'Kurucu & Eğitim Danışmanı',
-      image: 'https://placehold.co/400x500',
-      description: 'Eğitim alanında 15 yılı aşkın deneyimiyle öğrenci koçluğu ve kariyer danışmanlığı hizmetleri sunmaktadır. Boğaziçi Üniversitesi Eğitim Bilimleri Bölümünden mezun olduktan sonra, Eğitim Yönetimi ve Politikası alanında yüksek lisansını tamamlamıştır. Sınav sistemleri, öğrenme stratejileri ve öğrenci motivasyonu konularında uzmanlaşmıştır.'
+      name: 'Funda Girgin',
+      position: 'Terapiva Danışmanlık Kurucusu | Psikolojik Danışman',
+      image: fundaImage,
+      description: "Uludağ Üniversitesi Psikolojik Danışmanlık ve Rehberlik bölümünden mezun olduktan sonra, İstanbul ve Bursa'daki çeşitli özel kurumlarda her yaş grubuna yönelik danışmanlık ve rehberlik hizmetleri verdim. Eğitim koçluğu, çocuk ve ergen danışmanlığı, grup çalışmaları, psikoeğitim programları ve yetişkin psikoterapisi alanlarında kapsamlı bir saha deneyimi edindim. Akademik gelişimin; sağlıklı bir psikolojik altyapı, doğru yönlendirme ve bireysel farkındalıkla sürdürülebilir olduğuna inanıyorum. Bu yaklaşım doğrultusunda Terapiva Akademi ve Danışmanlık çatısı altında, öğrenci koçluğu ve bireysel danışmanlık hizmetleri sunuyoruz. Danışanlarımla kurduğum ilişki, sadece bir süreç değil; dönüşümün mümkün olduğuna inanan, güvene dayalı bir iş birliği. Yıllar içinde gördüm ki, her birey doğru destekle kendi potansiyeline ulaşabilir. Bu inanç, mesleğimi tutkuyla ve sorumlulukla sürdürmemin en temel sebebi. Eğitim alanında 15 yılı aşkın deneyimiyle öğrenci koçluğu ve kariyer danışmanlığı hizmetleri sunmaktadır. Boğaziçi Üniversitesi Eğitim Bilimleri Bölümünden mezun olduktan sonra, Eğitim Yönetimi ve Politikası alanında yüksek lisansını tamamlamıştır. Sınav sistemleri, öğrenme stratejileri ve öğrenci motivasyonu konularında uzmanlaşmıştır."
     }
   ];
 
@@ -35,50 +37,56 @@ const About = () => {
           </p>
         </div>
         
-        <div className="founders-profiles">
+        <div className="founders-grid">
           {founders.map((founder) => (
-            <div key={founder.id} className="founder-profile">
-              <div className="founder-image">
-                <img src={founder.image} alt={founder.name} />
+            <div key={founder.id} className="founder-card">
+              <div className="founder-image-wrapper">
+                <img src={founder.image} alt={founder.name} className="founder-image" />
               </div>
-              <div className="founder-info">
-                <h3>{founder.name}</h3>
+              <div className="founder-content">
+                <h3 className="founder-name">{founder.name}</h3>
                 <span className="founder-position">{founder.position}</span>
-                <p className="founder-description">{founder.description}</p>
+                <div className="founder-description">
+                  {founder.description.split('. ').map((paragraph, index) => (
+                    <p key={index}>{paragraph}.</p>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
         
-        <div className="mission-vision">
-          <div className="mission">
-            <h3>Misyonumuz</h3>
-            <p>
-              Terapiva Akademi & Danışmanlık olarak, bireylerin akademik, duygusal ve psikolojik gelişimlerine 
-              destek olmak için kaliteli ve profesyonel hizmetler sunmayı amaçlıyoruz. Uzman kadromuzla 
-              öğrencilerin potansiyellerini en üst düzeye çıkarmalarına, ailelerin sağlıklı iletişim kurabilmelerine 
-              ve bireylerin kişisel gelişimlerine katkıda bulunuyoruz.
-            </p>
-          </div>
-          
-          <div className="vision">
-            <h3>Vizyonumuz</h3>
-            <p>
-              Alanında lider, yenilikçi yaklaşımlarla eğitim ve danışmanlık hizmetleri sunan, 
-              toplumsal farkındalık ve bilinç düzeyini artıran bir kurum olmayı hedefliyoruz. 
-              Her yaştan bireyin, kendi potansiyelini keşfetmesine ve gerçekleştirmesine 
-              yardımcı olarak, mutlu ve başarılı bir toplumun oluşmasına katkıda bulunmak istiyoruz.
-            </p>
+        <div className="values-section">
+          <div className="mission-vision-grid">
+            <div className="value-card mission">
+              <h3>Misyonumuz</h3>
+              <p>
+                Terapiva Akademi & Danışmanlık olarak, bireylerin akademik, duygusal ve psikolojik gelişimlerine 
+                destek olmak için kaliteli ve profesyonel hizmetler sunmayı amaçlıyoruz. Uzman kadromuzla 
+                öğrencilerin potansiyellerini en üst düzeye çıkarmalarına, ailelerin sağlıklı iletişim kurabilmelerine 
+                ve bireylerin kişisel gelişimlerine katkıda bulunuyoruz.
+              </p>
+            </div>
+            
+            <div className="value-card vision">
+              <h3>Vizyonumuz</h3>
+              <p>
+                Alanında lider, yenilikçi yaklaşımlarla eğitim ve danışmanlık hizmetleri sunan, 
+                toplumsal farkındalık ve bilinç düzeyini artıran bir kurum olmayı hedefliyoruz. 
+                Her yaştan bireyin, kendi potansiyelini keşfetmesine ve gerçekleştirmesine 
+                yardımcı olarak, mutlu ve başarılı bir toplumun oluşmasına katkıda bulunmak istiyoruz.
+              </p>
+            </div>
           </div>
         </div>
         
-        <div className="about-stats">
-          <div className="stat-item">
-            <span className="stat-number">5+</span>
+        <div className="stats-section">
+          <div className="stat-card">
+            <span className="stat-number">15+</span>
             <span className="stat-text">Yıllık Deneyim</span>
           </div>
           
-          <div className="stat-item">
+          <div className="stat-card">
             <span className="stat-number">500+</span>
             <span className="stat-text">Mutlu Danışan</span>
           </div>

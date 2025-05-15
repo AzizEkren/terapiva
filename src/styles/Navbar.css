@@ -24,25 +24,36 @@
 }
 
 .navbar-logo {
-  color: #f3eae8;
-  transition: transform 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
-.navbar-logo:hover {
-  transform: scale(1.05);
+.navbar-logo-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar-logo h1 {
   margin: 0;
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #fabe47;
+  line-height: 1.2;
 }
 
 .navbar-logo p {
   margin: 0;
   font-size: 0.9rem;
   color: #f3eae8;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.navbar-logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
 }
 
 .navbar-links {
@@ -215,5 +226,57 @@
 
   .hamburger-menu {
     display: flex;
+  }
+
+  .navbar-logo-img {
+    height: 40px;
+  }
+
+  .navbar-logo h1 {
+    font-size: 2rem;
+  }
+
+  .navbar-logo p {
+    font-size: 1rem;
+  }
+}
+
+.floating-logo {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  transform: none;
+  z-index: 1001;
+  background-color: #f3eae8;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.floating-logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .floating-logo {
+    left: 10px;
+    bottom: 10px;
+  }
+  
+  .floating-logo-img {
+    width: 50px;
+    height: 50px;
   }
 }
