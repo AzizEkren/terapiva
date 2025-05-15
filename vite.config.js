@@ -8,7 +8,9 @@ export default defineConfig({
     port: 3000
   },
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    assetsDir: 'assets'
   },
-  base: '/'
+  base: '/',
+  publicDir: 'public'
 })
