@@ -53,12 +53,16 @@
   height: 100%;
   min-height: 500px;
   overflow: hidden;
+  position: relative;
 }
 
 .founder-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .founder-content {
@@ -152,8 +156,16 @@
   }
 
   .founder-image-wrapper {
-    height: 500px;
+    height: 400px;
     min-height: auto;
+    position: relative;
+  }
+
+  .founder-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .mission-vision-grid {
@@ -171,7 +183,8 @@
   }
 
   .founder-image-wrapper {
-    height: 400px;
+    height: 350px;
+    width: 100%;
   }
 
   .founder-content {
@@ -189,7 +202,14 @@
 
 @media (max-width: 480px) {
   .founder-image-wrapper {
-    height: 300px;
+    height: 250px;
+    width: 100%;
+  }
+
+  .founder-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .founder-content {
